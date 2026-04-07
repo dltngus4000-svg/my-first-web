@@ -88,3 +88,16 @@
     border: 1px dashed #4caf50;
     text-align: center;
 }
+/* 1. 주문서 구역 전체 디자인 */
+#order-area {
+    margin-top: 60px;
+    padding: 30px;
+    background-color: #F4F8FB;
+    border: 1px solid #f9fdf9;
+    border-radius: 20px;
+}
+
+/* 2. Flexbox 마법 구역 적용 */
+form {
+    display: flex;
+}

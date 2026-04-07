@@ -70,8 +70,84 @@ done_all
               </ul>
             </section>
           </div>
+
         </article>
       </section>
-    </main>
+      <section id="order-area">
+        <hr>
+        <h2>온라인 주문하기</h2>
+        <form action="">
+          <div class="input-row">
+            <div class="input-group">
+              <label>주문자 성함</label>
+              <input
+              type="text"
+              id="userName"
+              placeholder="실명을 입력하세요">
+            </div>
 
-    <footer> 
+            <div class="input-group">
+                 <label>배송 방식 선택</label>
+                 <select>
+                  <option>일반 택배(3,000)</option>
+                  <option>신선 새벽 배송(5,000)</option>
+                  <option value="">광주 로컬푸드 매장 픽업(무료)</option>
+                 </select>
+               </div>
+
+                <div class="input-group">
+                <labe1> 배송 메세지</labe1>
+                 <textarea
+                 name=""
+                 id=""
+                 placeholder="부재 시 문 앞에 놓아주세요"
+                 ></textarea>
+                </div>
+
+                <button type="button" class="order-btn" onclick="processorder()">
+                  바로 주문 완료
+                </button>
+              </div>
+
+              </form>
+            </section>
+          </main>
+
+          <footer>minchaee@goedu.kr &copy; all right resevered by 2026 이수현</footer>
+
+          <script>
+            function processorder() {
+
+              let name = document.getElementById('useName').value;
+               let phone = document.getElementById('userPone').value;
+
+               let feeValue=document.getElementById("deliveryFee").value;
+               let deliveryFee=Number(feeValue);
+
+               let productprice = 15000;
+               let totalprice = productprice + deliveryFee;
+
+               if(name==="" || phone ===""){
+                alert("성함과 연락처를 모두 입력해 주세요!");
+                return;
+               }
+               let receipt = document.getElementById('receipt');
+
+               receipt.innerHTML = `
+               <h3> 주문 확인 영수증 </h3>
+               <p><strong>주문자:</stong>${name}님</p>
+               <P><stong>연락처:</stong>${phone}님</p>
+               <P><stong>상품가격:</stong>${productprice.toLocaleString()}원</p>
+               <P><stong>연락처:</stong>${deliveryFee.toLocaleString()}원</p>
+
+               <hr>
+               <p style="font-size: 1.2em;"><string> 총 결제 금액:
+               <span style"color:red;">${totalprice.toLocaleString()}원</p>
+               </strong></p>
+               <p style="text-align: center;">주문해주셔서 감사합니다! </p>
+               `;
+               receipt.style.dispay="block";
+              }
+            <script>
+          </body>
+        </html> 
