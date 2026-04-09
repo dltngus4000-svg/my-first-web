@@ -100,4 +100,61 @@
 /* 2. Flexbox 마법 구역 적용 */
 form {
     display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
+.input-row {
+    display: flex;
+    gap:15px;
+    margin-bottom: 20px;
+}
+.input-row .input-group {
+    flex: 1;
+}
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #4caf50;
+
+    box-shadow: 0 0 8PX rgba(76, 175, 80, 0.2);
+}
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border:1px soild #ddd;
+    background-color: white;
+}
+.order-btn {
+    background-color: #2e7d32;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: bold;
+    cursor:pointer;
+    transition: 0.1s;
+}
+.order-btn:hover {
+    background-color: #388e3c;
+    transition: translateY(2px);
+}
+.order-btn:active {
+    transform: translateY(5px);
+}
+.receipt-box {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px dashed #4caf50;
+    background-color: #ffff;
+    border-radius: 10px;
+    display: none;
+}
+.receipt-box h3 {
+    color: #2e7d32;
+    border-bottom: 1px soild #eee;
+    padding-bottom: 10px;
+}
+
+
