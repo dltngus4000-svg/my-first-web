@@ -1,180 +1,198 @@
 <!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>나의 웹 페이지</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 웹 페이지</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      #login-box {
+        text-align: center;
+        margin: 50px;
+      }
+      #user-display-area {
+        text-align: right;
+        padding: 10px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
 
-  <!-- 폰트 -->
-  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <body>
+    <header>
+      <h1>노력은 배신하지 않는다</h1>
+      <div id="user-display-area" style="display: none">
+        <span id="user-display"></span>님 환영합니다!
+      </div>
+    </header>
 
-  <link rel="stylesheet" href="style.css">
+    <nav>
+      <a href="index.html">홈으로</a>
+      <a href="subject.html">진로 탐구</a>
+      <a href="gallery.html">갤러리</a>
+    </nav>
 
-  <style>
-    /* 🔒 로그인 전체 덮는 화면 */
-    #login-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .login-box {
-      text-align: center;
-    }
-  </style>
-</head>
-
-<body>
-
-<!-- 🔒 로그인 화면 (추가된 부분) -->
-<div id="login-overlay">
-  <div class="login-box">
-    <h2>시스템 인증이 필요합니다</h2>
-    <input type="password" id="userPw" maxlength="4" placeholder="암호 4자리" />
-    <br><br>
-    <button onclick="checkLogin()">입장하기</button>
-  </div>
-</div>
-
-<header>
-  <h1>노력은 배신하지 않는다</h1>
-</header>
-
-<nav>
-  <a href="index.html">홈으로</a>
-  <a href="subject.html">진로 탐구</a>
-  <a href="gallery.html">갤러리</a>
-</nav>
-
-<main>
-
-  <!-- ⭐ 기존 내용 그대로 유지 -->
-  <div style="text-align: center; margin:50px;"> 
-    <article class="crop-item">
-      
-      <figure class="crop-image">
-        <img src="./images/lettuce.png" alt="직접 재배한 농작물 사진">
-        <figcaption>그림1. 본인이 직접 재배한 농작물 실물</figcaption> 
-      </figure>
-
-      <div class="crop-details">
-        <h3>농작물 명칭: 상추</h3>
-
-        <section class="info-block">
-          <h4>재배 및 생산 특성</h4>
-          <ul>
-            <li><strong>품종:</strong> 상추</li>
-            <li><strong>재배 환경:</strong> 시설재배 / 노지재배</li>
-          </ul>
-        </section>
-
-        <section class="info-block">
-          <h4>유통 구조</h4>
-          <p>생산자 → 로컬푸드 직매장 → 소비자</p>
-        </section>
+    <main>
+      <div id="login-box">
+        <h2>시스템 인증이 필요합니다</h2>
+        <input type="text" id="userNameInput" placeholder="사용자 이름" /><br />
+        <input
+          type="password"
+          id="userPwInput" 
+          placeholder="암호 입력"
+        /><br />
+        <button onclick="checkLogin()">입장하기</button>
       </div>
 
-    </article>
-  </div>
+      <div id="secret-area" style="display: none">
+        <div style="text-align: center; margin: 50px">
+          <article class="crop-item">
+            <figure class="crop-image">
+              <img src="./images/lettuce.png" alt="직접 재배한 농작물 사진" />
+              <figcaption>그림1. 본인이 직접 재배한 농작물 실물</figcaption>
+            </figure>
 
-  <section id="order-area">
-    <hr>
-    <h2>📦 온라인 주문하기</h2>
+            <div class="crop-details">
+              <h3>농작물 명칭: 상추</h3>
+              <section class="info-block">
+                <h4>재배 및 생산 특성</h4>
+                <ul>
+                  <li><strong>품종:</strong> 상추</li>
+                  <li><strong>재배 환경:</strong> 시설재배 / 노지재배</li>
+                </ul>
+              </section>
+              <section class="info-block">
+                <h4>유통 구조</h4>
+                <p>生产자 → 로컬푸드 직매장 → 소비자</p>
+              </section>
+            </div>
+          </article>
+        </div>
 
-    <input type="text" id="userName" placeholder="이름"><br><br>
-    <input type="text" id="userPhone" placeholder="연락처"><br><br>
+        <section id="order-area">
+          <hr />
+          <h2>📦 온라인 주문하기</h2>
+          <input type="text" id="orderName" placeholder="이름" /><br /><br />
+          <input type="text" id="userPhone" placeholder="연락처" /><br /><br />
+          <select id="unitWeight">
+            <option value="15000">상추 1kg (15,000원)</option>
+            <option value="40000">상추 1kg (40,000원)</option>
+            <option value="60000">상추 1kg (60,000원)</option></select
+          ><br /><br />
+          <input
+            type="number"
+            id="quantity"
+            value="1"
+            min="1"
+            max="10"
+          /><br /><br />
+          <select id="deliveryFee">
+            <option value="3000">일반 택배 (3,000원)</option>
+            <option value="5000">새벽 배송 (5,000원)</option>
+            <option value="0">매장 픽업 (무료)</option></select
+          ><br /><br />
+          <textarea placeholder="요청사항"></textarea><br /><br />
+          <button onclick="processOrder()" class="order-btn">주문하기</button>
+          <div id="receipt" class="receipt-box"></div>
+        </section>
+      <h4>
+        <div id="seltting" style="margin-top: 30px; padding: 20px; border: 1px soild #ddd; background: #fff;"> 
+      <h4> 시스템 보안 설정</h4>
+      <p style="font-size: 0.9em; color: #666;">보안을 위해 정기적으로 비밀번호를 변경해 주세요.</p>
+      <input tyle="password" id="newPw" placeholder="새 비밀번호 입력" />
+      <button onclick="changePassword()">비밀번호 변경</button>
+      <button onclick="logout()">로그아웃</button> 
+      </div>
+    </main>
 
-    <select id="unitWeight">
-      <option value="15000">상추 1kg (15,000원)</option>
-      <option value="40000">상추 1kg (40,000원)</option>
-      <option value="60000">상추 1kg (60,000원)</option>
-    </select><br><br>
+    <footer style="text-align: center; margin-top: 30px"> 
+      <p>&copy; 2026 이수현</p>
+    </footer>
 
-    <input type="number" id="quantity" value="1" min="1" max="10"><br><br>
+    <script>
+      function checkLogin() {
+        // ID 중복 방지를 위해 Input ID 변경
+        let name = document.getElementById("userNameInput").value;
+        let pw = document.getElementById("userPwInput").value;
+        let currentPw = localStorage.getItem("userpassword") || "1234";
 
-    <select id="deliveryFee">
-      <option value="3000">일반 택배 (3,000원)</option>
-      <option value="5000">새벽 배송 (5,000원)</option>
-      <option value="0">매장 픽업 (무료)</option>
-    </select><br><br>
+        // name() 오류 수정 및 빈칸 체크
+        if (pw === currentPw && name.trim() !== "") {
+          localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("savedName", name); // 변수 name 저장
+          localStorage.setItem("userpassword", pw) 
 
-    <textarea placeholder="요청사항"></textarea><br><br>
+          alert(name + "님, 인증되었습니다.");
+          showSecretArea(name);
+        } else {
+          alert("이름을 입력하지 않았거나 암호가 틀렸습니다.");
+        }
+      }
 
-    <button onclick="processOrder()">주문하기</button>
+      function showSecretArea(name) {
+        document.getElementById("login-box").style.display = "none";
+        document.getElementById("secret-area").style.display = "block";
+        document.getElementById("user-display-area").style.display = "block";
+        document.getElementById("user-display").innerText = name;
+      }
 
-    <div id="receipt" style="display:none; margin-top:20px;"></div>
+      window.onload = function () {
+        let isLoggedIn = localStorage.getItem("isLoggedIn");
+        let savedName = localStorage.getItem("savedName");
 
-  </section>
+        if (isLoggedIn === "true" && savedName) {
+          showSecretArea(savedName);
+        }
+      };
 
-</main>
+      function processOrder() {
+        let name = document.getElementById("orderName").value;
+        let phone = document.getElementById("userPhone").value;
 
-<footer style="text-align:center; margin-top:30px;">
-  <p>&copy; 2026 이수현</p>
-</footer>
+        if (name === "" || phone === "") {
+          alert("이름과 연락처를 모두 입력해주세요!");
+          return;
+        }
 
-<script>
+        let quantity = Number(document.getElementById("quantity").value);
+        let deliveryFee = Number(document.getElementById("deliveryFee").value);
+        let unitSelect = document.getElementById("unitWeight");
+        let productName = unitSelect.options[unitSelect.selectedIndex].text;
+        let productPrice = Number(unitSelect.value);
 
-function checkLogin() {
-  let pw = document.getElementById("userPw").value;
+        let basePrice = productPrice * quantity;
+        if (basePrice >= 30000) deliveryFee = 0; // 3만원 이상 무료배송
 
-  if (pw === "0815") {
-    alert("인증 성공!");
-    document.getElementById("login-overlay").style.display = "none";
-  } else {
-    alert("암호가 틀렸습니다.");
-  }
-}
+        let total = basePrice + deliveryFee;
+        let receipt = document.getElementById("receipt");
 
-function processOrder() {
+        receipt.innerHTML = `
+          <h3>주문 완료</h3>
+          <p>이름: ${name}</p>
+          <p>상품: ${productName}</p>
+          <p>수량: ${quantity}개</p>
+          <p>결제 금액: ${total.toLocaleString()}원 (배송비: ${deliveryFee.toLocaleString()}원 포함)</p>
+        `;
+        receipt.style.display = "block";
+      }
+      function changePassword() {
+        let newPw = document.getElementById("newPw").value;
+        if (newPw.length < 4) { alert("암호는 4자리 이싱이어야 합니다."); return; }
+        localStorage.setItem("userpassword", newPw);
+        alert("비밀번호가 변경되었습니다.");
+      }
 
-  let name = document.getElementById('userName').value;
-  let phone = document.getElementById('userPhone').value;
-
-  if (name === "") {
-    alert("이름 입력!");
-    return;
-  }
-  if (phone === "") {
-    alert("연락처 입력!");
-    return;
-  }
-
-  let quantity = Number(document.getElementById("quantity").value);
-  let deliveryFee = Number(document.getElementById("deliveryFee").value);
-
-  let unitSelect = document.getElementById("unitWeight");
-  let productName = unitSelect.options[unitSelect.selectedIndex].text;
-  let productPrice = Number(unitSelect.value);
-
-  let basePrice = productPrice * quantity;
-
-  if (basePrice >= 30000) {
-    deliveryFee = 0;
-  }
-
-  let total = basePrice + deliveryFee;
-
-  let receipt = document.getElementById("receipt");
-
-  receipt.innerHTML = `
-    <h3>주문 완료</h3>
-    <p>이름: ${name}</p>
-    <p>상품: ${productName}</p>
-    <p>수량: ${quantity}</p>
-    <p>총 금액: ${total.toLocaleString()}원</p>
-  `;
-
-  receipt.style.display = "block";
-}
-
-</script>
-
-</body>
+      function logout() {
+        if (confirm("로그아웃 하시겠습니까?")) {
+          localStorage.removeItem("isLoggedIn");
+          localStorage.removeItem("savedName");
+          location.href = "index.html";
+        }
+      }
+    </script>
+  </body>
 </html>

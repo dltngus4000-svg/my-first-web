@@ -1,190 +1,88 @@
-    
-    body{
+body {
+  font-family: "Jua", sans-serif;
+  background-color: #f4f8fb;
+  color: #3a4a5a;
+  line-height: 1.7;
+  margin: 0;
+}
 
-         font-family: "Jua", sans-serif;
-        background-color: #F4F8FB;
-        color: #3A4A5A;
-        line-height: 1.7;
-        margin: 0;
-        
-    }
-    
-    header {
-        background-color: #6FA8DC;
-        color: white;
-        text-align: center;
-        padding: 50px 0;
-    }
-    nav {
-        text-align: center;
-        padding: 15px;
-        background-color: #DCEAF7;
-    }
-    nav a {
-        margin: 0 15px;
-        text-decoration: none;
-        font-weight: bold;
-        color:#2C5C85
-    }
-    img{
-        display: block;
-        margin: 30px auto;
-        width: 250px;
-        border-radius: 50%;
-        border: 10px solid white;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    header,footer{
-        padding: 50px 0;
-    }
-    main {
-        width: 80%;
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 30px;
-        background-color: white;
-        border: 1px solid #ddd;
-    }
-    .my-button{
-        display: inline-block;
-        padding: 15px 30px;
-        background-color: #3f72af;
-        color: white;
-        text-decoration: none;
-        border-radius: 30px;
-        margin-top: 20px;
-        transition: 0.3s;
-        
-    }
-        .my-button:hover {
-            background-color: #112D4E;
-            transform: translate(-3px);
-        }
-    
+header {
+  background-color: #6fa8dc;
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+}
 
+nav {
+  text-align: center;
+  padding: 15px;
+  background-color: #dceaf7;
+}
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #2c5c85;
+}
 
+img {
+  display: block;
+  margin: 30px auto;
+  width: 250px;
+  border-radius: 50%;
+  border: 10px solid white; /* soild 오타 수정 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-.crop-item{
-    display:  flex;
-    gap: 50px;
-    padding: 30px;
-    border-radius: 15px;
-    background-color: #f9fdf9;
+
+main {
+  width: 80%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border: 1px solid #ddd;
 }
-.crop-item{
-    flex: 1;
-}
-.crop-item{
-    flex :1.5;
-}
-.step-guide{
-    border: 1px dashed #4caf50;
-    text-align: center;
-}
-/* 1. 주문서 구역 전체 디자인 */
+
+/* 주문 영역 디자인 */
 #order-area {
-    margin-top: 60px;
-    padding: 30px;
-    background-color: #F4F8FB;
-    border: 1px solid #f9fdf9;
-    border-radius: 20px;
+  margin-top: 60px;
+  padding: 30px;
+  background-color: #f4f8fb;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
 }
 
-/* 2. Flexbox 마법 구역 적용 */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.input-row {
-    display: flex;
-    gap:15px;
-    margin-bottom: 20px;
-}
-.input-row .input-group {
-    flex: 1;
-}
-.input-group input:focus,
-.input-group textarea:focus {
-    outline: none;
-    border-color: #4caf50;
-
-    box-shadow: 0 0 8PX rgba(76, 175, 80, 0.2);
-}
-select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border:1px soild #ddd;
-    background-color: white;
-}
 .order-btn {
-    background-color: #2e7d32;
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    width: 100%;
-    font-weight: bold;
-    cursor:pointer;
-    transition: 0.1s;
+  background-color: #2e7d32;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
 }
+
 .order-btn:hover {
-    background-color: #388e3c;
-    transition: translateY(2px);
+  background-color: #388e3c;
+  transform: translateY(-2px);
 }
-.order-btn:active {
-    transform: translateY(5px);
-}
+
 .receipt-box {
-    margin-top: 30px;
-    padding: 20px;
-    border: 2px dashed #4caf50;
-    background-color: #ffff;
-    border-radius: 10px;
-    display: none;
-}
-.receipt-box h3 {
-    color: #2e7d32;
-    border-bottom: 1px soild #eee;
-    padding-bottom: 10px;
-}
-display-box {
-    text-align: center;
-    background-color:#f0f0;
-    padding:20px;
-    border-radius: 15px ;/*모서리를 둥글게 깎아주는 속성(예: 15px)*/
-    margin-bottom:30px;
-}
-#targetlmg {
-    transition: transform 0.3s ease;/*사진 바뀔 때 부드러운 효과*/
-}
-.thumb-list {
-    display:  flex ;/*사진들을 가로로 나란히 배치하는 마법의 정렬 속성 (f로 시작)*/
-    justify-content: center;
-    gap: 15px;
-    flex-wrap:wrap;/*사진이 많아지면 다음 줄로 넘어가게(w로 시작)*/
-}
-.thumb-list img {
-    cursor: pointer;
-    border: 3px soild transparent;
-    transition:0.2s;
-    width: 100px;/*썸네일 크기 조정*/
-    height: 100px;
-    object-fit:cover;/*사진이 찌그러지지 않게 꽉 채워 자르기!(c로 시작)*/
-    border-radius: 10px;
-}
-/*사용자가 마우스를 올렸을 때의 반응*/
-.thumb-list img:hover{
-    border-color:#3f72af;
-    transform:scale(1.1);/*사진을 1.1배로 살짝 키워서 클릭하고 싶게 만들기!*/
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px dashed #4caf50;
+  background-color: #fff;
+  border-radius: 10px;
+  display: none;
 }
 
-
+/* 오타 수정: soild -> solid */
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
