@@ -1,87 +1,185 @@
- <!doctype html>
+<!doctype html>
 <html lang="ko">
   <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet"> 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&"
+    />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>나의 웹 페이지</title>
-     <link rel="stylesheet" href="style.css">
-<style>
-    /* 1. 전체 배경색과 기본 폰트  */ 
-</style>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* 1. 전체 배경색과 기본 폰트  */
+    </style>
   </head>
 
   <body>
     <header>
-      <h1>노력은 배신하지 않는다</h1> 
+      <h1>노력은 배신하지 않는다</h1>
     </header>
 
     <nav>
-     <a href="index.html" >홈으로</a>
-      <a href="subject.html" >진로 탐구</a> 
-            <a href="gallery.html" >갤러리</a> 
-
+      <a href="index.html">홈으로</a>
+      <a href="subject.html">진로 탐구</a>
+      <a href="gallery.html">갤러리</a>
     </nav>
 
     <main>
+      <div id="login-box">
+        <h2>시스템 인증이 필요합니다</h2>
+        <input type="text" id="userNameInput" placeholder="사용자 이름" /><br />
+        <input type="password" id="userPwInput" placeholder="암호 입력" /><br />
+        <button onclick="checkLogin()">입장하기</button>
+      </div>
+
+      <div id="secret-area" style="display: none">
         <div class="display-box">
-            <img id="targetlmg" src="./images/crop1.jpg" style="width: 100%; 
-            max-width: 500px;"/>
-            <p id="targetDesc">4월 7일: 상추 첫 수확!</p>
+          <img
+            id="targetlmg"
+            src="./images/crop1.jpg"
+            style="width: 100%; max-width: 500px"
+          />
+          <p id="targetDesc">4월 7일: 상추 첫 수확!</p>
         </div>
         <div class="thumb-list">
-            <img src="./images/crop1.jpg"
-            onclick="show('/images/crop1.jpg','4월 7일:상추 첫 수확!')"/> 
-            <img src="./images/crop2.jpg"
-            onclick="show('/images/crop2.jpg','4월 9일:비료 주기 실습 완료')"/>
-             <img src="./images/상추_전.jpg"
-            onclick="show('/images/상추_전.jpg','4월 10일:비료 주기 실습 완료')"/> 
+          <img
+            src="./images/crop1.jpg"
+            onclick="show('/images/crop1.jpg', '4월 7일:상추 첫 수확!')"
+          />
+          <img
+            src="./images/crop2.jpg"
+            onclick="show('/images/crop2.jpg', '4월 9일:비료 주기 실습 완료')"
+          />
+          <img
+            src="./images/상추_전.jpg"
+            onclick="
+              show('/images/상추_전.jpg', '4월 10일:비료 주기 실습 완료')
+            "
+          />
 
-               <img src="./images/상추_요리.jpg"
-            onclick="show('/images/상추_요리.jpg','4월 11일:비료 주기 실습 완료')"/> 
+          <img
+            src="./images/상추_요리.jpg"
+            onclick="
+              show('/images/상추_요리.jpg', '4월 11일:비료 주기 실습 완료')
+            "
+          />
 
-               <img src="./images/상추_겉절이.jpg"
-            onclick="show('/images/상추_겉절이.jpg','4월 12일:비료 주기 실습 완료')"/> 
+          <img
+            src="./images/상추_겉절이.jpg"
+            onclick="
+              show('/images/상추_겉절이.jpg', '4월 12일:비료 주기 실습 완료')
+            "
+          />
 
-               <img src="./images/상추 _김밥.jpg"
-            onclick="show('/images/상추_김밥.jpg','4월 13일:비료 주기 실습 완료')"/> 
-              
-            <img src="./images/상추_샌드위치.jpg"
-            onclick="show('/images/상추_샌드위치.jpg','4월 14일:비료 주기 실습 완료')"/> 
-             
-            <img src="./images/상추_전.jpg"
-            onclick="show('/images/상추_.jpg','4월 15일:비료 주기 실습 완료')"/> 
-              
-            <img src="./images/상추_장아찌.jpg"
-            onclick="show('/images/상추_장아찌.jpg','4월 16일:비료 주기 실습 완료')"/> 
-              
-            <img src="./images/참치_상추쌈밥.jpg"
-            onclick="show('/images/참치_상추쌈밥.jpg','4월 17일:비료 주기 실습 완료')"/> 
+          <img
+            src="./images/상추 _김밥.jpg"
+            onclick="
+              show('/images/상추_김밥.jpg', '4월 13일:비료 주기 실습 완료')
+            "
+          />
 
-            <img src="./images/토마토_계란볶음.jpg"
-            onclick="show('/images/토마토_계란볶음.jpg','4월 18일:비료 주기 실습 완료')"/> 
+          <img
+            src="./images/상추_샌드위치.jpg"
+            onclick="
+              show('/images/상추_샌드위치.jpg', '4월 14일:비료 주기 실습 완료')
+            "
+          />
 
-            <img src="./images/라따두이_토마토.jpg"
-            onclick="show('/images/라따두이_토마토.jpg','4월 19일:비료 주기 실습 완료')"/> 
+          <img
+            src="./images/상추_전.jpg"
+            onclick="show('/images/상추_.jpg', '4월 15일:비료 주기 실습 완료')"
+          />
 
+          <img
+            src="./images/상추_장아찌.jpg"
+            onclick="
+              show('/images/상추_장아찌.jpg', '4월 16일:비료 주기 실습 완료')
+            "
+          />
 
+          <img
+            src="./images/참치_상추쌈밥.jpg"
+            onclick="
+              show('/images/참치_상추쌈밥.jpg', '4월 17일:비료 주기 실습 완료')
+            "
+          />
 
-            
+          <img
+            src="./images/토마토_계란볶음.jpg"
+            onclick="
+              show(
+                '/images/토마토_계란볶음.jpg',
+                '4월 18일:비료 주기 실습 완료',
+              )
+            "
+          />
+
+          <img
+            src="./images/라따두이_토마토.jpg"
+            onclick="
+              show(
+                '/images/라따두이_토마토.jpg',
+                '4월 19일:비료 주기 실습 완료',
+              )
+            "
+          />
         </div>
+      </div>
     </main>
   </body>
   <script>
     //imgPath: 클릭한 사진의 주소/text:클릭한 사진의 설명
     function show(imgPath, text) {
-        document.getElementById("targetlmg").src=imgPath; 
-        document.getElementById("targetDesc").innerText=text;
+      document.getElementById("targetlmg").src = imgPath;
+      document.getElementById("targetDesc").innerText = text;
     }
+    function checkLogin() {
+      // ID 중복 방지를 위해 Input ID 변경
+      let name = document.getElementById("userNameInput").value;
+      let pw = document.getElementById("userPwInput").value;
+      let currentPw = localStorage.getItem("userpassword") || "1234";
+
+      // name() 오류 수정 및 빈칸 체크
+      if (pw === currentPw && name.trim() !== "") {
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("savedName", name); // 변수 name 저장
+        localStorage.setItem("userpassword", pw);
+
+        alert(name + "님, 인증되었습니다.");
+        showSecretArea(name);
+      } else {
+        alert("이름을 입력하지 않았거나 암호가 틀렸습니다.");
+      }
+    }
+
+    function showSecretArea(name) {
+      document.getElementById("login-box").style.display = "none";
+      document.getElementById("secret-area").style.display = "block";
+      document.getElementById("user-display-area").style.display = "block";
+      document.getElementById("user-display").innerText = name;
+    }
+
+    window.onload = function () {
+      let isLoggedIn = localStorage.getItem("isLoggedIn");
+      let savedName = localStorage.getItem("savedName");
+
+      if (isLoggedIn === "true" && savedName) {
+        showSecretArea(savedName);
+      }
+    };
   </script>
 </html>
