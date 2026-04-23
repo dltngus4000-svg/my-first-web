@@ -76,13 +76,17 @@
         <section id="order-area">
           <hr />
           <h2>📦 온라인 주문하기</h2>
+          <label>주문자:</label>
           <input type="text" id="orderName" placeholder="이름" /><br /><br />
+          <label>연락처:</label>
           <input type="text" id="userPhone" placeholder="연락처" /><br /><br />
+          <label>주문선택:</label>
           <select id="unitWeight">
             <option value="15000">상추 1kg (15,000원)</option>
-            <option value="40000">상추 1kg (40,000원)</option>
-            <option value="60000">상추 1kg (60,000원)</option></select
+            <option value="40000">상추 2kg (40,000원)</option>
+            <option value="60000">상추 3kg (60,000원)</option></select 
           ><br /><br />
+          <label>주문 수량:</label>
           <input
             type="number"
             id="quantity"
@@ -90,11 +94,13 @@
             min="1"
             max="10"
           /><br /><br />
+          <label>주문 방식:</label>
           <select id="deliveryFee">
             <option value="3000">일반 택배 (3,000원)</option>
             <option value="5000">새벽 배송 (5,000원)</option>
             <option value="0">매장 픽업 (무료)</option></select
           ><br /><br />
+          <label>주문 사항:</label>
           <textarea placeholder="요청사항"></textarea><br /><br />
           <button onclick="processOrder()" class="order-btn">주문하기</button>
           <div id="receipt" class="receipt-box"></div>
@@ -150,35 +156,51 @@
       };
 
       function processOrder() {
-        let name = document.getElementById("orderName").value;
-        let phone = document.getElementById("userPhone").value;
+  let name = document.getElementById("orderName").value;
+  let phone = document.getElementById("userPhone").value;
+  let request = document.querySelector("textarea").value; // ✅ 요청사항 추가
 
-        if (name === "" || phone === "") {
-          alert("이름과 연락처를 모두 입력해주세요!");
-          return;
-        }
+  if (name === "" || phone === "") {
+    alert("이름과 연락처를 모두 입력해주세요!");
+    return;
+  }
 
-        let quantity = Number(document.getElementById("quantity").value);
-        let deliveryFee = Number(document.getElementById("deliveryFee").value);
-        let unitSelect = document.getElementById("unitWeight");
-        let productName = unitSelect.options[unitSelect.selectedIndex].text;
-        let productPrice = Number(unitSelect.value);
+  let quantity = Number(document.getElementById("quantity").value);
+  let deliverySelect = document.getElementById("deliveryFee");
+  let deliveryFee = Number(deliverySelect.value);
+  let deliveryMethod = deliverySelect.options[deliverySelect.selectedIndex].text; // ✅ 배송 방식
 
-        let basePrice = productPrice * quantity;
-        if (basePrice >= 30000) deliveryFee = 0; // 3만원 이상 무료배송
+  let unitSelect = document.getElementById("unitWeight");
+  let productName = unitSelect.options[unitSelect.selectedIndex].text;
+  let productPrice = Number(unitSelect.value);
 
-        let total = basePrice + deliveryFee;
-        let receipt = document.getElementById("receipt");
+  let basePrice = productPrice * quantity;
 
-        receipt.innerHTML = `
-          <h3>주문 완료</h3>
-          <p>이름: ${name}</p>
-          <p>상품: ${productName}</p>
-          <p>수량: ${quantity}개</p>
-          <p>결제 금액: ${total.toLocaleString()}원 (배송비: ${deliveryFee.toLocaleString()}원 포함)</p>
-        `;
-        receipt.style.display = "block";
-      }
+  // 3만원 이상 무료배송
+  if (basePrice >= 30000) {
+    deliveryFee = 0;
+    deliveryMethod += " (무료배송 적용)";
+  }
+
+  let total = basePrice + deliveryFee;
+
+  let receipt = document.getElementById("receipt");
+
+  receipt.innerHTML = `
+    <h3>주문 완료</h3>
+    <p>이름: ${name}</p>
+    <p>연락처: ${phone}</p>
+    <p>상품: ${productName}</p>
+    <p>수량: ${quantity}개</p>
+    <p>배송 방식: ${deliveryMethod}</p> <!-- ✅ 추가 -->
+    <p>요청사항: ${request || "없음"}</p> <!-- ✅ 추가 -->
+    <p>상품 금액: ${basePrice.toLocaleString()}원</p>
+    <p>배송비: ${deliveryFee.toLocaleString()}원</p>
+    <p><strong>최종 결제 금액: ${total.toLocaleString()}원</strong></p> <!-- ✅ 최종금액 -->
+  `;
+
+  receipt.style.display = "block";
+}
       function changePassword() {
         let newPw = document.getElementById("newPw").value;
         if (newPw.length < 4) { alert("암호는 4자리 이싱이어야 합니다."); return; }
