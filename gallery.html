@@ -62,61 +62,84 @@
           />
           <img
             src="./images/crop2.jpg"
-            onclick="show('/images/crop2.jpg', '4월 9일:비료 주기 실습 완료')"
+            onclick="
+              show('/images/crop2.jpg', '4월 9일:내가 좋아하는 상추~~!!!')
+            "
           />
           <img
             src="./images/상추_전.jpg"
             onclick="
-              show('/images/상추_전.jpg', '4월 10일:비료 주기 실습 완료')
+              show(
+                '/images/상추_전.jpg',
+                '4월 10일:내가 좋아하는 상추로 전 만들기',
+              )
             "
           />
 
           <img
             src="./images/상추_요리.jpg"
             onclick="
-              show('/images/상추_요리.jpg', '4월 11일:비료 주기 실습 완료')
+              show('/images/상추_요리.jpg', '4월 11일: 상추 요리를 해봤어요!!!')
             "
           />
 
           <img
             src="./images/상추_겉절이.jpg"
             onclick="
-              show('/images/상추_겉절이.jpg', '4월 12일:비료 주기 실습 완료')
+              show(
+                '/images/상추_겉절이.jpg',
+                '4월 12일:내가 좋아하는 상추 겉절이~!~~',
+              )
             "
           />
 
           <img
             src="./images/상추 _김밥.jpg"
             onclick="
-              show('/images/상추_김밥.jpg', '4월 13일:비료 주기 실습 완료')
+              show(
+                '/images/상추 _김밥.jpg',
+                '4월 13일: 김밥은 집에서 만드는 게 맛있음!!',
+              )
             "
           />
 
           <img
             src="./images/상추_샌드위치.jpg"
             onclick="
-              show('/images/상추_샌드위치.jpg', '4월 14일:비료 주기 실습 완료')
+              show(
+                '/images/상추_샌드위치.jpg',
+                '4월 14일:샌드위치 너무 좋아해!',
+              )
             "
           />
 
           <img
             src="./images/상추 _된장국.jpg"
             onclick="
-              show('/images/상추 _된장국.jpg', '4월 15일:비료 주기 실습 완료')
+              show(
+                '/images/상추 _된장국.jpg',
+                '4월 15일: 파는 거 먹지말고 셀프 전 먹자!!',
+              )
             "
           />
 
           <img
             src="./images/상추_장아찌.jpg"
             onclick="
-              show('/images/상추_장아찌.jpg', '4월 16일:비료 주기 실습 완료')
+              show(
+                '/images/상추_장아찌.jpg',
+                '4월 16일: 매력있는 상추 장아찌!!!',
+              )
             "
           />
 
           <img
             src="./images/참치_상추쌈밥.jpg"
             onclick="
-              show('/images/참치_상추쌈밥.jpg', '4월 17일:비료 주기 실습 완료')
+              show(
+                './images/참치_상추쌈밥.jpg',
+                '4월 17일:김밥은 역시 !! 상추김밥 ',
+              )
             "
           />
 
@@ -125,7 +148,7 @@
             onclick="
               show(
                 '/images/토마토_계란볶음.jpg',
-                '4월 18일:비료 주기 실습 완료',
+                '4월 18일: 처음 보는 토마토 계란볶음!!!',
               )
             "
           />
@@ -135,27 +158,10 @@
             onclick="
               show(
                 '/images/라따두이_토마토.jpg',
-                '4월 19일:비료 주기 실습 완료',
+                '4월 19일: 내가 좋아하는 토마토 라따두이!!! ',
               )
             "
           />
-        </div>
-        <div
-          id="seltting"
-          style="
-            margin-top: 30px;
-            padding: 20px;
-            border: 1px soild #ddd;
-            background: #fff;
-          "
-        >
-          <h4>시스템 보안 설정</h4>
-          <p style="font-size: 0.9em; color: #666">
-            보안을 위해 정기적으로 비밀번호를 변경해 주세요.
-          </p>
-          <input tyle="password" id="newPw" placeholder="새 비밀번호 입력" />
-          <button onclick="changePassword()">비밀번호 변경</button>
-          <button onclick="logout()">로그아웃</button>
         </div>
       </div>
     </main>
@@ -200,22 +206,5 @@
         showSecretArea(savedName);
       }
     };
-    function changePassword() {
-      let newPw = document.getElementById("newPw").value;
-      if (newPw.length < 4) {
-        alert("암호는 4자리 이싱이어야 합니다.");
-        return;
-      }
-      localStorage.setItem("userpassword", newPw);
-      alert("비밀번호가 변경되었습니다.");
-    }
-
-    function logout() {
-      if (confirm("로그아웃 하시겠습니까?")) {
-        localStorage.removeItem("isLoggedIn");
-        localStorage.removeItem("savedName");
-        location.href = "index.html";
-      }
-    }
   </script>
 </html>
