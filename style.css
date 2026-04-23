@@ -123,3 +123,7 @@ select {
   border-color: #3f72af;
   transform: scale(1.1); /* 클릭하고싶게*/
 }
+  #login-box {
+        text-align: center;
+        margin: 50px;
+      }
