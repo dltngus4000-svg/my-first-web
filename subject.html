@@ -10,7 +10,10 @@
     />
     <link rel="stylesheet" href="style.css" />
     <style>
-     
+      #login-box {
+        text-align: center;
+        margin: 50px;
+      }
       #user-display-area {
         text-align: right;
         padding: 10px;
@@ -146,49 +149,36 @@
         }
       };
 
-     function processOrder() {
-  let name = document.getElementById("orderName").value;
-  let phone = document.getElementById("userPhone").value;
+      function processOrder() {
+        let name = document.getElementById("orderName").value;
+        let phone = document.getElementById("userPhone").value;
 
-  if (name === "" || phone === "") {
-    alert("이름과 연락처를 모두 입력해주세요!");
-    return;
-  }
+        if (name === "" || phone === "") {
+          alert("이름과 연락처를 모두 입력해주세요!");
+          return;
+        }
 
-  let quantity = Number(document.getElementById("quantity").value);
-  let deliverySelect = document.getElementById("deliveryFee");
-  let deliveryText = deliverySelect.options[deliverySelect.selectedIndex].text;
-  let deliveryFee = Number(deliverySelect.value);
+        let quantity = Number(document.getElementById("quantity").value);
+        let deliveryFee = Number(document.getElementById("deliveryFee").value);
+        let unitSelect = document.getElementById("unitWeight");
+        let productName = unitSelect.options[unitSelect.selectedIndex].text;
+        let productPrice = Number(unitSelect.value);
 
-  let unitSelect = document.getElementById("unitWeight");
-  let productName = unitSelect.options[unitSelect.selectedIndex].text;
-  let productPrice = Number(unitSelect.value);
+        let basePrice = productPrice * quantity;
+        if (basePrice >= 30000) deliveryFee = 0; // 3만원 이상 무료배송
 
-  let requestMsg = document.querySelector("textarea").value; // ✅ 요청사항 가져오기
+        let total = basePrice + deliveryFee;
+        let receipt = document.getElementById("receipt");
 
-  let basePrice = productPrice * quantity;
-  if (basePrice >= 30000) deliveryFee = 0;
-
-  let total = basePrice + deliveryFee;
-
-  let receipt = document.getElementById("receipt");
-
-  receipt.innerHTML = `
-    <h3>주문 완료</h3>
-    <p>이름: ${name}</p>
-    <p>연락처: ${phone}</p>
-    <p>상품: ${productName}</p>
-    <p>수량: ${quantity}개</p>
-    <p>주문 방식: ${deliveryText}</p> <!-- ✅ 추가 -->
-    <p>요청사항: ${requestMsg ? requestMsg : "없음"}</p> <!-- ✅ 추가 -->
-    <hr>
-    <p>상품 금액: ${basePrice.toLocaleString()}원</p>
-    <p>배송비: ${deliveryFee.toLocaleString()}원</p>
-    <h3>최종 결제 금액: ${total.toLocaleString()}원</h3> <!-- ✅ 강조 -->
-  `;
-
-  receipt.style.display = "block";
-}
+        receipt.innerHTML = `
+          <h3>주문 완료</h3>
+          <p>이름: ${name}</p>
+          <p>상품: ${productName}</p>
+          <p>수량: ${quantity}개</p>
+          <p>결제 금액: ${total.toLocaleString()}원 (배송비: ${deliveryFee.toLocaleString()}원 포함)</p>
+        `;
+        receipt.style.display = "block";
+      }
       function changePassword() {
         let newPw = document.getElementById("newPw").value;
         if (newPw.length < 4) { alert("암호는 4자리 이싱이어야 합니다."); return; }
